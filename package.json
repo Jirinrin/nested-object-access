@@ -7,9 +7,9 @@
   "scripts": {
     "test": "jest"
   },
-  "repository": "",
-  "keywords": [],
-  "author": "",
+  "repository": "https://github.com/Jirinrin/nested-object-access",
+  "keywords": ["deep", "nested", "object", "recursion", "helper types"],
+  "author": "Jirinrin",
   "license": "ISC",
   "files": [
     "src/index.js",
