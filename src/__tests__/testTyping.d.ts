@@ -4,7 +4,7 @@ import { NestedKeys, RetrieveNested } from "..";
 
 // Test NestedKeys
 
-interface TestDict {
+type TestDict = {
   b: "bb";
   c: { d: "dd"; w: "ww"; e: { p: "pp" } };
   t: { l: "ww"; e: { q: "pp" } };
@@ -26,7 +26,7 @@ type TestKeysWithDepth = NestedKeys<TestDict, any, 2>;
 
 // Test RetrieveNested
 
-interface TestDict2 { c: { e: { p: "pp" } } }
+type TestDict2 = { c: { e: { p: "pp" } } }
 
 // { e: { p: "pp"; }; }
 type TestNestedPath1 = RetrieveNested<TestDict2, "c">;

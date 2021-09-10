@@ -33,7 +33,7 @@ type TestKeysWithDepth = NestedKeys<TestDict, any, 2>;
 Returns the type that is at a dot-separated path in an object.
 
 ```ts
-interface TestDict2 { c: { e: { p: "pp" } } }
+type TestDict2 = { c: { e: { p: "pp" } } }
 
 // { e: { p: "pp"; }; }
 type TestNestedPath1 = RetrieveNested<TestDict2, "c">;
@@ -51,3 +51,6 @@ import { getNested } from "nested-object-access";
 const testDict = { c: { e: { p: "pp" } } };
 console.log(getNested("c.e.p")); // "pp"
 ```
+
+## TODO
+- You can currently only pass a `type Sth = {...}` into the helper functions, not `interface Sth {...}` because of missing index signature...
