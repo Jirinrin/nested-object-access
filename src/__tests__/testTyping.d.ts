@@ -2,21 +2,35 @@
 
 import { NestedKeys, RetrieveNested } from "..";
 
-type TestDict = {
+// Test NestedKeys
+
+interface TestDict {
   b: "bb";
   c: { d: "dd"; w: "ww"; e: { p: "pp" } };
   t: { l: "ww"; e: { q: "pp" } };
   i: { d: "DD"; o: "oo" };
-};
+}
 
-// "b" | "c.d" | "c.w" | "c.e.p" | "t.e.q" | "t.l" | "i.d" | "i.o"
-type TestDotsTestStr = NestedKeys<TestDict, "primitives">;
-// "c" | "t" | "i" | "c.e" | "t.e"
-type TestDotsTestObj = NestedKeys<TestDict, "objects">;
+// Default functionality
 // "b" | "c" | "t" | "i" | "c.d" | "c.w" | "c.e.p" | "t.e.q" | "t.l" | "i.d" | "i.o" | "c.e" | "t.e"
-type TestDotsTestAny = NestedKeys<TestDict>;
-// "b" | "c.d" | "c.w" | "t.l" | "i.d" | "i.o"
-type TestDotsTestDepth = NestedKeys<TestDict, "primitives", 2>;
+type TestKeys = NestedKeys<TestDict>;
+// Get only the paths to primitive values
+// "b" | "c.d" | "c.w" | "c.e.p" | "t.e.q" | "t.l" | "i.d" | "i.o"
+type TestKeysPr = NestedKeys<TestDict, "primitives">;
+// Get only the paths to nested objects
+// "c" | "t" | "i" | "c.e" | "t.e"
+type TestKeysObj = NestedKeys<TestDict, "objects">;
+// Get only up to a certain depth
+// "b" | "c" | "t" | "i" | "c.d" | "c.w" | "c.e" | "t.e" | "t.l" | "i.d" | "i.o"
+type TestKeysWithDepth = NestedKeys<TestDict, any, 2>;
 
-type TestPath1 = RetrieveNested<TestDict, "c">;
-type TestPath2 = RetrieveNested<TestDict, "c.e">;
+// Test RetrieveNested
+
+interface TestDict2 { c: { e: { p: "pp" } } }
+
+// { e: { p: "pp"; }; }
+type TestNestedPath1 = RetrieveNested<TestDict2, "c">;
+// { p: "pp"; }
+type TestNestedPath2 = RetrieveNested<TestDict2, "c.e">;
+// "pp"
+type TestNestedPath3 = RetrieveNested<TestDict2, "c.e.p">;
