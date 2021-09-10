@@ -1,7 +1,5 @@
 type Primitive = string | number | boolean | null | undefined;
-interface NestedRecord {
-  [key: string]: Primitive | NestedRecord;
-}
+type NestedRecord = Record<string, Primitive | NestedRecord>;
 
 /**
  * This will spit out a union type of all key-value pairs in an object.
@@ -43,10 +41,10 @@ export type NestedKeys<
  * e.g. "a.b.c" in object {a: {b: {c: "somethiing"}}}
  */
 export type RetrieveNested<D extends NestedRecord, P extends NestedKeys<D>> =
-  P extends `${infer KBase}.${infer PNested}` //
-    ? D[KBase] extends NestedRecord
-      ? RetrieveNested<D[KBase], PNested>
-      : D[KBase]
+  P extends `${infer KBase}.${infer PNested}`
+    ? D[KBase] extends Primitive
+      ? D[KBase]
+      : RetrieveNested<D[KBase], PNested>
     : D[P];
 
 export function getNested<T extends NestedRecord, K extends NestedKeys<T>>(record: T, key: K): RetrieveNested<T, K>;
