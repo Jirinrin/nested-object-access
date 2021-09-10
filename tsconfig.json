@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "ES6",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strict": true,
+    "types": ["jest"],
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true
+  },
+  "include": ["src"],
+  "exclude": ["src/__tests__"]
+}
