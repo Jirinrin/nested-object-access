@@ -46,7 +46,9 @@ export type RetrieveNested<D extends NestedRecord, P extends NestedKeys<D>> =
   P extends `${infer KBase}.${infer PNested}`
     ? D[KBase] extends Primitive
       ? D[KBase]
-      : RetrieveNested<D[KBase], PNested>
+        : D[KBase] extends NestedRecord
+        ? RetrieveNested<D[KBase], PNested>
+      : never
     : D[P];
 
 export function getNested<T extends NestedRecord, K extends NestedKeys<T>>(record: T, key: K): RetrieveNested<T, K>;

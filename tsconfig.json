@@ -4,7 +4,7 @@
     "target": "ES6",
     "allowJs": true,
     "moduleResolution": "node",
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "strict": true,
     "types": ["jest"],
     "noEmit": true,
