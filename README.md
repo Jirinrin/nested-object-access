@@ -2,6 +2,8 @@
 
 TypeScript-powered util to work with nested objects using dot-separated keys.
 
+[Get it on NPM here](https://www.npmjs.com/package/nested-object-access)
+
 This package exports the following stuff:
 
 ## Helper type: NestedKeys
@@ -9,10 +11,10 @@ Returns a union of all dot-separated paths to entries in a nested object.
 
 ```ts
 type TestDict = {
-  b: "bb";
-  c: { d: "dd"; w: "ww"; e: { p: "pp" } };
-  t: { l: "ww"; e: { q: "pp" } };
-  i: { d: "DD"; o: "oo" };
+  b: string;
+  c: { d: number; w: string; e: { p: false } };
+  t: { l: boolean; e: { q: "foo" } };
+  i: { d: string | undefined; o: null };
 };
 
 // Default functionality
@@ -53,4 +55,4 @@ console.log(getNested("c.e.p")); // "pp"
 ```
 
 ## TODO
-- You can currently only pass a `type Sth = {...}` into the helper functions, not `interface Sth {...}` because of missing index signature...
+- You can currently only pass a `type Foo = {...}` into the helper functions, not `interface Foo {...}` because of missing index signature...
