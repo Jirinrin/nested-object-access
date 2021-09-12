@@ -10,6 +10,7 @@ const testObj = {
     null: null,
     undef: undefined,
   },
+  d: { 1: "1" },
 };
 
 describe("getNested", () => {
@@ -18,6 +19,9 @@ describe("getNested", () => {
   });
   it("gets a simple nested key", () => {
     expect(getNested(testObj, "b.c")).toBe(testObj.b.c);
+  });
+  it("gets a number key", () => {
+    expect(getNested(testObj, "d.1")).toBe(testObj.d[1]);
   });
   it("gets an object root-level key", () => {
     expect(getNested(testObj, "b")).toEqual(testObj.b);
