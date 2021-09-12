@@ -1,6 +1,6 @@
 {
   "name": "nested-object-access",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript-powered util to work with nested objects using dot-separated keys",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -8,7 +8,13 @@
     "test": "jest"
   },
   "repository": "https://github.com/Jirinrin/nested-object-access",
-  "keywords": ["deep", "nested", "object", "recursion", "helper types"],
+  "keywords": [
+    "deep",
+    "nested",
+    "object",
+    "recursion",
+    "helper types"
+  ],
   "author": "Jirinrin",
   "license": "ISC",
   "files": [
