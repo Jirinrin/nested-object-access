@@ -1,6 +1,6 @@
 {
   "name": "nested-object-access",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "TypeScript-powered util to work with nested objects using dot-separated keys",
   "main": "src/index.js",
   "types": "src/index.d.ts",
