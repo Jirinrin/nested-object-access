@@ -5,11 +5,11 @@ import { NestedKeys, RetrieveNested } from "..";
 // Test NestedKeys
 
 type TestDict = {
-  b: "bb";
-  c: { d: "dd"; w: "ww"; e: { p: "pp" } };
-  t: { l: "ww"; e: { q: "pp" } };
-  i: { d: "DD"; o: "oo" };
-}
+  b: string;
+  c: { d: number; w: string; e: { p: false } };
+  t: { l: boolean; e: { q: "foo" } };
+  i: { d: string | undefined; o: null };
+};
 
 // Default functionality
 // "b" | "c" | "t" | "i" | "c.d" | "c.w" | "c.e.p" | "t.e.q" | "t.l" | "i.d" | "i.o" | "c.e" | "t.e"
