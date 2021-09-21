@@ -1,5 +1,7 @@
 # Nested Object Access
 
+<a href="https://www.npmjs.com/package/nested-object-access"><img src="https://img.shields.io/npm/dm/nested-object-access.svg?style=flat-square" alt="NPM Downloads" /></a>
+
 TypeScript-powered util to work with nested objects using dot-separated keys.
 
 [Get it on NPM here](https://www.npmjs.com/package/nested-object-access)
