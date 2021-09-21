@@ -31,4 +31,13 @@ describe("getNested", () => {
       // @ts-ignore
       expect(getNested(testObj, `prim.${k}` as `prim.${keyof typeof testObj.prim}`)).toEqual(testObj.prim[k]));
   });
+  it("returns undefined for a nonexistent root-level key", () => {
+    expect(getNested(testObj, "z" as any)).toBe(undefined);
+  });
+  it("returns undefined for a nonexistent nested key", () => {
+    expect(getNested(testObj, "z.y.x" as any)).toBe(undefined);
+  });
+  it("returns undefined for a partially existent nested key", () => {
+    expect(getNested(testObj, "b.z" as any)).toBe(undefined);
+  });
 });
