@@ -53,7 +53,7 @@ Function version of RetrieveNested.
 ```ts
 import { getNested } from "nested-object-access";
 const testDict = { c: { e: { p: "pp" } } };
-console.log(getNested("c.e.p")); // "pp"
+console.log(getNested(testDict, "c.e.p")); // "pp"
 ```
 
 ## TODO
